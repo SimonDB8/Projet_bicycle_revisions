@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Projet_bicycle_revisions</string>
+    <string name="app_name">Bicycle Revisions</string>
+    <string name="title_list_rev">List of revisions</string>
+    <string name="id_list_rev">ID</string>
+    <string name="status_list_rev">Status</string>
+    <string name="details_button">Details</string>
 </resources>
