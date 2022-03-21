@@ -10,6 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Projet_bicycle_revisions">
+
         <activity
             android:name=".ui.mgmt.LoginActivity"
             android:label="@string/app_name"
@@ -34,6 +35,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.projet_bicycle_revisions.ui.mgmt.RegisterActivity" />
+        </activity>
+        <activity
+            android:name=".ui.mechanic.MechanicActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".ui.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.projet_bicycle_revisions.ui.mechanic.MechanicActivity" />
         </activity>
     </application>
 

@@ -11,6 +11,5 @@
     <item
         android:id="@+id/person"
         android:icon="@drawable/ic_person"
-        android:onClick="showProfile"
         android:title="Person" />
     </menu>
