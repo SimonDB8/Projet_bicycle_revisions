@@ -21,4 +21,5 @@
     <string name="error_used_email">The email is already used</string>
     <string name="title_activity_register">Register</string>
     <string name="title_activity_profile">Profile</string>
+    <string name="title_activity_add">Add a revision</string>
 </resources>

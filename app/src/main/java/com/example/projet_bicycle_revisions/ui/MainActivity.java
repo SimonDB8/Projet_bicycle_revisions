@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.projet_bicycle_revisions.R;
+import com.example.projet_bicycle_revisions.ui.bike.BikeActivity;
 import com.example.projet_bicycle_revisions.ui.mechanic.MechanicActivity;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -47,49 +48,15 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
                 startActivity( new Intent(this, MechanicActivity.class));
                 break;
             case R.id.add:
+                startActivity( new Intent(this, BikeActivity.class));
                 break;
             case R.id.home:
+                startActivity( new Intent(this, MainActivity.class));
                break;
             default:
                 break;
         }
 
     }
-
-
-    //@Override
-  //public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-  //    switch (item.getItemId()) {
-  //               case R.id.person:
-  //                   Intent intent = new Intent(MainActivity.this, MechanicActivity.class);
-  //                   startActivity(intent);
-  //                   return true;
-  //               case R.id.add:
-  //                   return true;
-  //               case R.id.home:
-  //                   return true;
-  //               default:
-  //               return super.onOptionsItemSelected(item);
-  //           }
-  //}
-//
-    //@Override
-    //public boolean onOptionsItemSelected(MenuItem item) {
-    //    switch (item.getItemId()) {
-    //        case R.id.person:
-    //            Intent intent = new Intent(MainActivity.this, MechanicActivity.class);
-    //            startActivity(intent);
-    //            return true;
-    //        case R.id.add:
-    //            return true;
-    //        case R.id.home:
-    //            return true;
-    //        default:
-    //        return super.onOptionsItemSelected(item);
-    //    }
-    //}
-
-
-
 
 }
