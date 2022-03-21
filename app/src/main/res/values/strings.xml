@@ -4,4 +4,21 @@
     <string name="id_list_rev">ID</string>
     <string name="status_list_rev">Status</string>
     <string name="details_button">Details</string>
+    <string name="title_activity_login">Login</string>
+    <string name="error_invalid_password">Invalid password</string>
+    <string name="error_field_required">Must put an email</string>
+    <string name="error_invalid_email">Invalid Email</string>
+    <string name="error_incorrect_password">Incorrect Password</string>
+    <string name="emailField">Email</string>
+    <string name="passwordField">Password</string>
+    <string name="loginButton">Sign In</string>
+    <string name="registerButton">Sign out</string>
+    <string name="firstname">Firstname</string>
+    <string name="lastname">Lastname</string>
+    <string name="address">Address</string>
+    <string name="telephone">Telephone</string>
+    <string name="mechanic_created">Mechanic has been created</string>
+    <string name="error_used_email">The email is already used</string>
+    <string name="title_activity_register">Register</string>
+    <string name="title_activity_profile">Profile</string>
 </resources>

@@ -29,13 +29,13 @@ public class DatabaseInitializer {
 
     private static void populateWithTestData(AppDatabase db) {
         addMechanic(db,
-                "jc@mail.com","1234","Jean","Claude","+1",
+                "jc@mail.com","12345678","Jean","Claude","+1",
                 "Rue 1");
         addMechanic(db,
-                "jp@mail.com","1234","Jean","Pierre","+2",
+                "jp@mail.com","12345678","Jean","Pierre","+2",
                 "Rue 2");
         addMechanic(db,
-                "jm@mail.com","1234","Jean","Michel","+3",
+                "jm@mail.com","12345678","Jean","Michel","+3",
                 "Rue 3");
         try {
             // Let's ensure that the clients are already stored in the database before we continue.
