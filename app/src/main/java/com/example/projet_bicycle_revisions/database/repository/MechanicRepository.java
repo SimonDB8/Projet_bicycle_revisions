@@ -2,6 +2,7 @@ package com.example.projet_bicycle_revisions.database.repository;
 
 import android.app.Application;
 
+import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
 
 import com.example.projet_bicycle_revisions.BaseApp;
@@ -16,6 +17,7 @@ import java.time.format.ResolverStyle;
 public class MechanicRepository {
 
     private static MechanicRepository instance;
+
 
     private MechanicRepository() {
     }
@@ -45,4 +47,5 @@ public class MechanicRepository {
     public void delete(final MechanicEntity mechanic, OnAsyncEventListener callback, Application application){
         new DeleteMechanic(application,callback).execute(mechanic);
     }
+
 }

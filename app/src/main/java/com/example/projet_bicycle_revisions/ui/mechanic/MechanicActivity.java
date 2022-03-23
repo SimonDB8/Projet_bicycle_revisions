@@ -20,6 +20,7 @@ public class MechanicActivity extends AppCompatActivity implements NavigationBar
 
     protected BottomNavigationView navigationView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,11 +28,11 @@ public class MechanicActivity extends AppCompatActivity implements NavigationBar
         navigationView = new BottomNavigationView(this);
         navigationView = findViewById(R.id.bottomNavigationView);
         navigationView.setOnItemReselectedListener(this);
-
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(false);
+        setTitle("");
 
-        setTitle(R.string.title_activity_profile);
+
     }
 
 
