@@ -3,21 +3,16 @@ package com.example.projet_bicycle_revisions.ui;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-
 import com.example.projet_bicycle_revisions.R;
 import com.example.projet_bicycle_revisions.ui.bike.BikeActivity;
 import com.example.projet_bicycle_revisions.ui.mechanic.MechanicActivity;
-import com.google.android.material.appbar.AppBarLayout;
+import com.example.projet_bicycle_revisions.ui.mgmt.LoginActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
-import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationBarView.OnItemReselectedListener {
 
@@ -36,8 +31,6 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(false);
-
-
     }
 
     @Override
@@ -56,7 +49,5 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
             default:
                 break;
         }
-
     }
-
 }

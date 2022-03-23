@@ -32,7 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle(R.string.title_activity_register);
+        setTitle("");
         setContentView(R.layout.activity_register);
         initializeForm();
         toast = Toast.makeText(this, getString(R.string.mechanic_created), Toast.LENGTH_LONG);
