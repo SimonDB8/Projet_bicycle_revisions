@@ -22,8 +22,8 @@ public class DatabaseInitializer {
         db.mechanicDao().insert(mechanic);
     }
 
-    private static void addBike(final AppDatabase db, final String bikeModel, final String mechanic){
-        BikesEntity bike = new BikesEntity(bikeModel,mechanic);
+    private static void addBike(final AppDatabase db,final String mechanic, final String firstNameBike, final String lastNameBike, final String emailBike, final String telephoneBike, final String addressBike, final String descriptionBike){
+        BikesEntity bike = new BikesEntity(mechanic, firstNameBike,lastNameBike,emailBike, telephoneBike,addressBike,descriptionBike);
         db.bikeDao().insert(bike);
     }
 
@@ -38,30 +38,13 @@ public class DatabaseInitializer {
                 "jm@mail.com","12345678","Jean","Michel","+3",
                 "Rue 3");
         try {
-            // Let's ensure that the clients are already stored in the database before we continue.
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        addBike(db,"VTT 1","jc@mail.com");
-        addBike(db,"VTT 2","jc@mail.com");
-        addBike(db,"Velo1","jc@mail.com");
-        addBike(db,"Velo2","jc@mail.com");
-        addBike(db,"BMX 1","jc@mail.com");
-        addBike(db,"BMX 2","jc@mail.com");
-        addBike(db,"VTT 1","jp@mail.com");
-        addBike(db,"VTT 2","jp@mail.com");
-        addBike(db,"Velo1","jp@mail.com");
-        addBike(db,"Velo2","jp@mail.com");
-        addBike(db,"BMX 1","jp@mail.com");
-        addBike(db,"BMX 2","jp@mail.com");
-        addBike(db,"VTT 1","jm@mail.com");
-        addBike(db,"VTT 2","jm@mail.com");
-        addBike(db,"Velo1","jm@mail.com");
-        addBike(db,"Velo2","jm@mail.com");
-        addBike(db,"BMX 1","jm@mail.com");
-        addBike(db,"BMX 2","jm@mail.com");
-
+        addBike(db,"jc@mail.com","Paul","Dubuis","pb@mail.com","0785878787","rue du lac 1","Problème à la roue avant");
+        addBike(db,"jm@mail.com","Martin","Dubuis","pb@mail.com","0785878787","rue du lac 1","Problème à la roue avant");
+        addBike(db,"jp@mail.com","Jean","Dubuis","pb@mail.com","0785878787","rue du lac 1","Problème à la roue avant");
 
     }
 
@@ -77,7 +60,7 @@ public class DatabaseInitializer {
 
         @Override
         protected Void doInBackground(final Void... params) {
-            populateWithTestData(database);
+           populateWithTestData(database);
             return null;
         }
 

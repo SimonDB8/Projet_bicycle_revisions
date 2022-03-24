@@ -71,7 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
             etEmail.requestFocus();
             return;
         }
-        MechanicEntity newClient = new MechanicEntity(email,pwd,firstName,lastName,telephone,address);
+        MechanicEntity newMechanic = new MechanicEntity(email,pwd,firstName,lastName,telephone,address);
 
         new CreateMechanic(getApplication(), new OnAsyncEventListener() {
             @Override
@@ -85,7 +85,7 @@ public class RegisterActivity extends AppCompatActivity {
                 Log.d(TAG, "createUserWithEmail: failure", e);
                 setResponse(false);
             }
-        }).execute(newClient);
+        }).execute(newMechanic);
     }
 
     private void setResponse(Boolean response) {
