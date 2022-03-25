@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
         navigationView = new BottomNavigationView(this);
         navigationView = findViewById(R.id.bottomNavigationView);
         navigationView.setOnItemReselectedListener(this);
+        navigationView.setSelectedItemId(R.id.home);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(false);
@@ -44,8 +45,7 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
                 startActivity( new Intent(this, BikeActivity.class));
                 break;
             case R.id.home:
-                startActivity( new Intent(this, MainActivity.class));
-               break;
+                //do nothing
             default:
                 break;
         }

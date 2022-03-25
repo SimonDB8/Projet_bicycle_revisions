@@ -31,7 +31,7 @@ public class BikeActivity extends AppCompatActivity implements NavigationBarView
     private EditText etEmailBike;
     private EditText etTelephoneBike;
     private EditText etAddressBike;
-    private EditText etDescrptionBike;
+    private EditText etDescriptionBike;
 
 
 
@@ -42,6 +42,7 @@ public class BikeActivity extends AppCompatActivity implements NavigationBarView
         navigationView = new BottomNavigationView(this);
         navigationView = findViewById(R.id.bottomNavigationView);
         navigationView.setOnItemReselectedListener(this);
+        navigationView.setSelectedItemId(R.id.add);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(false);
         setTitle("");
@@ -57,7 +58,7 @@ public class BikeActivity extends AppCompatActivity implements NavigationBarView
         etEmailBike = findViewById(R.id.emailBike);
         etTelephoneBike = findViewById(R.id.telephoneBike);
         etAddressBike= findViewById(R.id.addressBike);
-        etDescrptionBike = findViewById(R.id.descriptionProblem);
+        etDescriptionBike = findViewById(R.id.descriptionProblem);
         Button createBike = findViewById(R.id.registerRepair);
         createBike.setOnClickListener(view -> saveNewBike(
                 etFirstNameBike.getText().toString(),
@@ -65,7 +66,7 @@ public class BikeActivity extends AppCompatActivity implements NavigationBarView
                 etEmailBike.getText().toString(),
                 etTelephoneBike.getText().toString(),
                 etAddressBike.getText().toString(),
-                etDescrptionBike.getText().toString()
+                etDescriptionBike.getText().toString()
         ));
     }
 
@@ -96,7 +97,7 @@ public class BikeActivity extends AppCompatActivity implements NavigationBarView
                 startActivity( new Intent(this, MechanicActivity.class));
                 break;
             case R.id.add:
-                startActivity( new Intent(this, BikeActivity.class));
+                //do nothing
                 break;
             case R.id.home:
                 startActivity( new Intent(this, MainActivity.class));

@@ -57,7 +57,7 @@ public class MechanicViewModel extends AndroidViewModel {
         }
     }
 
-        public LiveData<MechanicEntity> getClient() {
+        public LiveData<MechanicEntity> getMechanic() {
             return observableMechanic;
         }
 
@@ -65,11 +65,11 @@ public class MechanicViewModel extends AndroidViewModel {
             repository.insert(mechanic, callback, application);
         }
 
-        public void updateClient(MechanicEntity mechanic, OnAsyncEventListener callback) {
+        public void updateMechanic(MechanicEntity mechanic, OnAsyncEventListener callback) {
             repository.update(mechanic, callback, application);
         }
 
-        public void deleteClient(MechanicEntity mechanic, OnAsyncEventListener callback) {
+        public void deleteMechanic(MechanicEntity mechanic, OnAsyncEventListener callback) {
             repository.delete(mechanic, callback, application);
 
 

@@ -22,4 +22,8 @@
     <string name="title_activity_register">Register</string>
     <string name="title_activity_profile">Profile</string>
     <string name="title_activity_add">Add a revision</string>
+    <string name="mechanic_edited">Mechanic has been edited</string>
+    <string name="action_delete">Delete</string>
+    <string name="delete_msg">Do you really want to delete your account ?</string>
+    <string name="action_cancel">Cancel</string>
 </resources>
