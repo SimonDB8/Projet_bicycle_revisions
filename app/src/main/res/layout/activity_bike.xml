@@ -9,7 +9,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/layoutAddBike">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
 
         <TextView
             android:layout_width="match_parent"
@@ -22,16 +27,26 @@
             android:textColor="@color/black"/>
 
         <EditText
+            android:id="@+id/bikeBike"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="30dp"
+            android:ems="10"
+            android:hint="Bike"
+            android:inputType="textPersonName" />
+
+        <EditText
             android:id="@+id/firstnameBike"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="First Name"
-            android:inputType="textPersonName"
-            android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="25dp"
-            />
+            android:layout_marginRight="30dp"
+            android:ems="10"
+            android:hint="First Name"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/lastnameBike"
@@ -85,13 +100,12 @@
         <EditText
             android:id="@+id/descriptionProblem"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:ems="10"
-            android:hint="Description problem"
-            android:layout_marginRight="30dp"
+            android:layout_height="141dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
-            />
+            android:layout_marginRight="30dp"
+            android:ems="10"
+            android:hint="Description problem" />
 
         <Button
             android:id="@+id/registerRepair"
@@ -100,6 +114,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:text="Register the repair" />
+        </ScrollView>
 
     </LinearLayout>
 

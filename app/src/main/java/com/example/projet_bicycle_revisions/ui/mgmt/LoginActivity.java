@@ -5,17 +5,14 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.Window;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.projet_bicycle_revisions.BaseApp;
 import com.example.projet_bicycle_revisions.R;
-import com.example.projet_bicycle_revisions.database.entity.MechanicEntity;
 import com.example.projet_bicycle_revisions.database.repository.MechanicRepository;
 import com.example.projet_bicycle_revisions.ui.MainActivity;
 

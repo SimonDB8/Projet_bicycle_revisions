@@ -5,7 +5,6 @@ import android.os.AsyncTask;
 
 import com.example.projet_bicycle_revisions.BaseApp;
 import com.example.projet_bicycle_revisions.database.entity.MechanicEntity;
-import com.example.projet_bicycle_revisions.database.repository.MechanicRepository;
 import com.example.projet_bicycle_revisions.util.OnAsyncEventListener;
 
 public class DeleteMechanic extends AsyncTask<MechanicEntity, Void, Void> {

@@ -3,22 +3,45 @@ package com.example.projet_bicycle_revisions.ui;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.hardware.lights.LightsManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+
 import com.example.projet_bicycle_revisions.R;
+import com.example.projet_bicycle_revisions.adapter.RecyclerAdapter;
+import com.example.projet_bicycle_revisions.database.entity.BikesEntity;
 import com.example.projet_bicycle_revisions.ui.bike.BikeActivity;
+import com.example.projet_bicycle_revisions.ui.bike.BikeDetailActivity;
 import com.example.projet_bicycle_revisions.ui.mechanic.MechanicActivity;
 import com.example.projet_bicycle_revisions.ui.mgmt.LoginActivity;
+import com.example.projet_bicycle_revisions.util.RecyclerViewItemClickListener;
+import com.example.projet_bicycle_revisions.viewmodel.ListBikeViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationBarView.OnItemReselectedListener {
 
     public static final String PREFS_NAME = "SharedPrefs";
     public static final String PREFS_USER = "LoggedIn";
     protected BottomNavigationView navigationView;
+    private static final String TAG = "AccountsActivity";
+
+
+    private List<BikesEntity> bikes;
+    private RecyclerAdapter<BikesEntity> adapter;
+    private ListBikeViewModel viewModel;
 
 
     @Override
@@ -32,6 +55,52 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(false);
+        RecyclerView recyclerView = findViewById(R.id.bikesRecyclerView);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),LinearLayoutManager.VERTICAL);
+        recyclerView.addItemDecoration(dividerItemDecoration);
+
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        String email = settings.getString(PREFS_USER, null);
+
+        bikes = new ArrayList<>();
+        adapter = new RecyclerAdapter<>(new RecyclerViewItemClickListener() {
+            @Override
+            public void onItemClick(View v, int position) {
+                Log.d(TAG, "clicked position:" + position);
+                Log.d(TAG, "clicked on: " + bikes.get(position).getId());
+
+                Intent intent = new Intent(MainActivity.this, BikeDetailActivity.class);
+                intent.setFlags(
+                        Intent.FLAG_ACTIVITY_NO_ANIMATION |
+                                Intent.FLAG_ACTIVITY_NO_HISTORY
+                );
+                intent.putExtra("bikeId", bikes.get(position).getId());
+                startActivity(intent);
+            }
+
+            @Override
+            public void onItemLongClick(View v, int position) {
+                Log.d(TAG, "longClicked position:" + position);
+                Log.d(TAG, "longClicked on: " + bikes.get(position).getId());
+
+            }
+        });
+        ListBikeViewModel.Factory factory = new ListBikeViewModel.Factory(getApplication(),email);
+        viewModel = new ViewModelProvider(this,factory).get(ListBikeViewModel.class);
+        viewModel.getAllBikesOfMechanic().observe(this, bikesEntities -> {
+            if(bikesEntities !=null){
+                bikes = bikesEntities;
+                adapter.setData(bikes);
+            }
+        });
+
+        recyclerView.setAdapter(adapter);
+
+
     }
 
     @Override

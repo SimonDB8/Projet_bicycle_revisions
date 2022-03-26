@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.projet_bicycle_revisions.R;
@@ -26,6 +27,7 @@ public class BikeActivity extends AppCompatActivity implements NavigationBarView
 
     private Toast toast;
 
+    private EditText etBike;
     private EditText etFirstNameBike;
     private EditText etLastNameBike;
     private EditText etEmailBike;
@@ -47,12 +49,14 @@ public class BikeActivity extends AppCompatActivity implements NavigationBarView
         actionBar.setDisplayHomeAsUpEnabled(false);
         setTitle("");
 
+
       initializeForm();
-        toast = Toast.makeText(this, "Bike created",Toast.LENGTH_LONG);
+      toast = Toast.makeText(this, "Bike created",Toast.LENGTH_LONG);
     }
 
 
     private void initializeForm(){
+        etBike = findViewById(R.id.bikeBike);
         etFirstNameBike = findViewById(R.id.firstnameBike);
         etLastNameBike  = findViewById(R.id.lastnameBike);
         etEmailBike = findViewById(R.id.emailBike);
@@ -61,6 +65,7 @@ public class BikeActivity extends AppCompatActivity implements NavigationBarView
         etDescriptionBike = findViewById(R.id.descriptionProblem);
         Button createBike = findViewById(R.id.registerRepair);
         createBike.setOnClickListener(view -> saveNewBike(
+                etBike.getText().toString(),
                 etFirstNameBike.getText().toString(),
                 etLastNameBike.getText().toString(),
                 etEmailBike.getText().toString(),
@@ -70,8 +75,9 @@ public class BikeActivity extends AppCompatActivity implements NavigationBarView
         ));
     }
 
-    private void saveNewBike(String firstNameBike, String lastNameBike, String emailBike, String telephoneBike, String addressBike, String descriptionBike){
-        BikesEntity newBike = new BikesEntity(MainActivity.PREFS_NAME,firstNameBike,lastNameBike,emailBike,telephoneBike,addressBike,descriptionBike);
+    private void saveNewBike(String firstNameBike,String typeBike, String lastNameBike, String emailBike, String telephoneBike, String addressBike, String descriptionBike){
+        String status="ongoing";
+        BikesEntity newBike = new BikesEntity(MainActivity.PREFS_NAME,typeBike,firstNameBike,lastNameBike,emailBike,telephoneBike,addressBike,descriptionBike,false);
 
         new CreateBike(getApplication(), new OnAsyncEventListener() {
             @Override

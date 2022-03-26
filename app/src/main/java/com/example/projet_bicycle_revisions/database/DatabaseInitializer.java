@@ -3,8 +3,8 @@ package com.example.projet_bicycle_revisions.database;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.example.projet_bicycle_revisions.database.entity.BikesEntity;
 import com.example.projet_bicycle_revisions.database.entity.MechanicEntity;
+import com.example.projet_bicycle_revisions.database.entity.BikesEntity;
 
 public class DatabaseInitializer {
 
@@ -22,8 +22,8 @@ public class DatabaseInitializer {
         db.mechanicDao().insert(mechanic);
     }
 
-    private static void addBike(final AppDatabase db,final String mechanic, final String firstNameBike, final String lastNameBike, final String emailBike, final String telephoneBike, final String addressBike, final String descriptionBike){
-        BikesEntity bike = new BikesEntity(mechanic, firstNameBike,lastNameBike,emailBike, telephoneBike,addressBike,descriptionBike);
+    private static void addBike(final AppDatabase db,final String mechanic,final String typeBike, final String firstNameBike, final String lastNameBike, final String emailBike, final String telephoneBike, final String addressBike, final String descriptionBike){
+        BikesEntity bike = new BikesEntity(mechanic, typeBike,firstNameBike,lastNameBike,emailBike, telephoneBike,addressBike,descriptionBike,false);
         db.bikeDao().insert(bike);
     }
 
@@ -42,9 +42,9 @@ public class DatabaseInitializer {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        addBike(db,"jc@mail.com","Paul","Dubuis","pb@mail.com","0785878787","rue du lac 1","Problème à la roue avant");
-        addBike(db,"jm@mail.com","Martin","Dubuis","pb@mail.com","0785878787","rue du lac 1","Problème à la roue avant");
-        addBike(db,"jp@mail.com","Jean","Dubuis","pb@mail.com","0785878787","rue du lac 1","Problème à la roue avant");
+        addBike(db,"jc@mail.com","Yellow BMX","Paul","Dubuis","pb@mail.com","0785878787","rue du lac 1","Problème à la roue avant");
+        addBike(db,"jm@mail.com","Red Peugeot Bicycle","Martin","Dubuis","pb@mail.com","0785878787","rue du lac 1","Problème à la roue avant");
+        addBike(db,"jp@mail.com","Blue MountainBike","Jean","Dubuis","pb@mail.com","0785878787","rue du lac 1","Problème à la roue avant");
 
     }
 

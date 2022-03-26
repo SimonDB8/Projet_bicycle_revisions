@@ -8,11 +8,7 @@ import com.example.projet_bicycle_revisions.BaseApp;
 import com.example.projet_bicycle_revisions.database.async.bike.CreateBike;
 import com.example.projet_bicycle_revisions.database.async.bike.DeleteBike;
 import com.example.projet_bicycle_revisions.database.async.bike.EditBike;
-import com.example.projet_bicycle_revisions.database.async.mechanic.CreateMechanic;
-import com.example.projet_bicycle_revisions.database.async.mechanic.DeleteMechanic;
-import com.example.projet_bicycle_revisions.database.async.mechanic.EditMechanic;
 import com.example.projet_bicycle_revisions.database.entity.BikesEntity;
-import com.example.projet_bicycle_revisions.database.entity.MechanicEntity;
 import com.example.projet_bicycle_revisions.util.OnAsyncEventListener;
 
 import java.util.List;
@@ -40,6 +36,9 @@ public class BikeRepository {
 
     public LiveData<List<BikesEntity>> getAllofMechanic(final String mechanicId, Application application){
         return ((BaseApp)application).getDatabase().bikeDao().getAllofMechanic(mechanicId);
+    }
+    public LiveData<List<BikesEntity>> getAllofMechanicByStatus(final String mechanicId,final boolean status, Application application){
+        return ((BaseApp)application).getDatabase().bikeDao().getBikeByStatus(mechanicId,status);
     }
 
     public void insert(final BikesEntity bike, OnAsyncEventListener callback, Application application){

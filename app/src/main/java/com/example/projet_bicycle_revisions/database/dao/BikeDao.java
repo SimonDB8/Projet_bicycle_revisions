@@ -20,13 +20,19 @@ public interface BikeDao {
     @Query("SELECT * FROM bikes WHERE id=:id")
     LiveData<BikesEntity> getBike(long id);
 
+    @Query("SELECT * FROM bikes WHERE mechanic=:email and finished=:status")
+    LiveData<List<BikesEntity>> getBikeByStatus(String email, boolean status);
+
     @Insert
     long insert(BikesEntity bike);
+
+
 
     @Update
     void update(BikesEntity bike);
 
     @Delete
     void delete(BikesEntity bike);
+
 
 }

@@ -13,8 +13,8 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.projet_bicycle_revisions.database.dao.BikeDao;
 import com.example.projet_bicycle_revisions.database.dao.MechanicDao;
-import com.example.projet_bicycle_revisions.database.entity.BikesEntity;
 import com.example.projet_bicycle_revisions.database.entity.MechanicEntity;
+import com.example.projet_bicycle_revisions.database.entity.BikesEntity;
 
 import java.util.concurrent.Executors;
 
@@ -46,6 +46,7 @@ public abstract class AppDatabase extends RoomDatabase{
     }
 
     private static AppDatabase buildDatabase(final Context appContext) {
+        appContext.deleteDatabase(DATABASE_NAME);
         Log.i(TAG, "Database will be initialized.");
         return Room.databaseBuilder(appContext, AppDatabase.class, DATABASE_NAME)
                 .addCallback(new Callback() {

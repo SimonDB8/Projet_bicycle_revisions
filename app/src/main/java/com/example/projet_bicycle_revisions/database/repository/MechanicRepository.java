@@ -2,7 +2,6 @@ package com.example.projet_bicycle_revisions.database.repository;
 
 import android.app.Application;
 
-import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
 
 import com.example.projet_bicycle_revisions.BaseApp;
@@ -11,8 +10,6 @@ import com.example.projet_bicycle_revisions.database.async.mechanic.DeleteMechan
 import com.example.projet_bicycle_revisions.database.async.mechanic.EditMechanic;
 import com.example.projet_bicycle_revisions.database.entity.MechanicEntity;
 import com.example.projet_bicycle_revisions.util.OnAsyncEventListener;
-
-import java.time.format.ResolverStyle;
 
 public class MechanicRepository {
 

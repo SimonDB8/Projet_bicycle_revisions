@@ -1,22 +1,22 @@
 package com.example.projet_bicycle_revisions.database.entity;
 
 import androidx.annotation.NonNull;
-import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "bikes", foreignKeys = @ForeignKey( entity = MechanicEntity.class, parentColumns = "email",childColumns = "mechanic"), indices = {@Index(value = {"mechanic"})})
+@Entity(tableName = "bikes", foreignKeys = @ForeignKey( entity = MechanicEntity.class,
+        parentColumns = "email",childColumns = "mechanic",onDelete = ForeignKey.CASCADE), indices = {@Index(value = {"mechanic"})})
 public class BikesEntity {
 
     @PrimaryKey(autoGenerate = true)
     private Long id;
-    private String bike;
     private String mechanic;
 
-    @NonNull
+    private String typeBike;
 
+    @NonNull
     private String firstNameBike;
 
     private String lastNameBike;
@@ -29,10 +29,12 @@ public class BikesEntity {
 
     private String descriptionBike;
 
+    private boolean finished;
+
     public BikesEntity() {
     }
 
-    public BikesEntity(String mechanic, @NonNull String firstNameBike, String lastNameBike, String emailBike, String telephoneBike, String addressBike, String descriptionBike) {
+    public BikesEntity(String mechanic,String typeBike, @NonNull String firstNameBike, String lastNameBike, String emailBike, String telephoneBike, String addressBike, String descriptionBike, boolean finished) {
         this.mechanic = mechanic;
         this.firstNameBike = firstNameBike;
         this.lastNameBike = lastNameBike;
@@ -40,6 +42,8 @@ public class BikesEntity {
         this.telephoneBike = telephoneBike;
         this.addressBike = addressBike;
         this.descriptionBike = descriptionBike;
+        this.typeBike = typeBike;
+        this.finished = finished;
     }
 
     public Long getId() {
@@ -48,14 +52,6 @@ public class BikesEntity {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getBike() {
-        return bike;
-    }
-
-    public void setBike(String bike) {
-        this.bike = bike;
     }
 
     public String getMechanic() {
@@ -113,5 +109,21 @@ public class BikesEntity {
 
     public void setDescriptionBike(String descriptionBike) {
         this.descriptionBike = descriptionBike;
+    }
+
+    public String getTypeBike() {
+        return typeBike;
+    }
+
+    public void setTypeBike(String typeBike) {
+        this.typeBike = typeBike;
+    }
+
+    public boolean isFinished() {
+        return finished;
+    }
+
+    public void setFinished(boolean finished) {
+        this.finished = finished;
     }
 }

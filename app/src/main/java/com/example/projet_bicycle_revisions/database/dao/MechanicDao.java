@@ -1,7 +1,6 @@
 package com.example.projet_bicycle_revisions.database.dao;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MethodCallsLogger;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;

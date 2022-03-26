@@ -47,6 +47,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.projet_bicycle_revisions.ui.mechanic.MechanicActivity" />
         </activity>
+        <activity
+            android:name=".ui.bike.BikeDetailActivity"
+            android:parentActivityName=".ui.MainActivity"
+            >
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.projet_bicycle_revisions.ui.bike.BikeDetailActivity" />
+        </activity>
     </application>
 
 </manifest>
