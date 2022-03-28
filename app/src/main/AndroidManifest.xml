@@ -56,6 +56,23 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.projet_bicycle_revisions.ui.bike.BikeDetailActivity" />
         </activity>
+        <activity
+            android:name=".ui.bike.BikeArchivedActivity"
+            android:parentActivityName=".ui.MainActivity"
+            >
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.projet_bicycle_revisions.ui.bike.BikeArchivedActivity" />
+        </activity>
+        <activity
+            android:name=".ui.mgmt.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".ui.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.projet_bicycle_revisions.ui.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

@@ -29,24 +29,33 @@ public class DatabaseInitializer {
 
     private static void populateWithTestData(AppDatabase db) {
         addMechanic(db,
-                "jc@mail.com","12345678","Jean","Claude","+1",
-                "Rue 1");
+                "jc@mail.com","12345678","Jean","Claude","+0711111111",
+                "Rue de la paix 50");
         addMechanic(db,
-                "jp@mail.com","12345678","Jean","Pierre","+2",
-                "Rue 2");
+                "jp@mail.com","12345678","Jean","Pierre","+0722222222",
+                "Avenue de la guerre 14");
         addMechanic(db,
-                "jm@mail.com","12345678","Jean","Michel","+3",
-                "Rue 3");
+                "jm@mail.com","12345678","Jean","Michel","+0733333333",
+                "Chemin de la neutralité 1");
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        addBike(db,"jc@mail.com","Yellow BMX","Paul","Dubuis","pb@mail.com","0785878787","rue du lac 1","Problème à la roue avant");
-        addBike(db,"jm@mail.com","Red Peugeot Bicycle","Martin","Dubuis","pb@mail.com","0785878787","rue du lac 1","Problème à la roue avant");
-        addBike(db,"jm@mail.com","Red Peugeot Bicycle","Martin","Dubuis","pb@mail.com","0785878787","rue du lac 1","Problème à la roue avant");
-        addBike(db,"jm@mail.com","Red Peugeot Bicycle","Martin","Dubuis","pb@mail.com","0785878787","rue du lac 1","Problème à la roue avant");
-        addBike(db,"jp@mail.com","Blue MountainBike","Jean","Dubuis","pb@mail.com","0785878787","rue du lac 1","Problème à la roue avant");
+        addBike(db,"jc@mail.com","Yellow BMX","Paul","Dubuis","pb@mail.com","0785878787","rue du lac 1","Problem with front wheel");
+        addBike(db,"jc@mail.com","Red Peugeot Bicycle","Martin","Dubuis","pb@mail.com","0785878787","rue du lac 1","New tires");
+        addBike(db,"jc@mail.com","Blue MountainBike","Jean","Dubuis","pb@mail.com","0785878787","rue du lac 1","Annual Revision");
+        addBike(db,"jp@mail.com","Yellow BMX","Paul","Dubuis","pb@mail.com","0785878787","rue du lac 1","Problem with front wheel");
+        addBike(db,"jp@mail.com","Red Peugeot Bicycle","Martin","Dubuis","pb@mail.com","0785878787","rue du lac 1","New tires");
+        addBike(db,"jp@mail.com","Blue MountainBike","Jean","Dubuis","pb@mail.com","0785878787","rue du lac 1","Annual Revision");
+        addBike(db,"jm@mail.com","Yellow BMX","Paul","Dubuis","pb@mail.com","0785878787","rue du lac 1","Problem with front wheel");
+        addBike(db,"jm@mail.com","Red Peugeot Bicycle","Martin","Dubuis","pb@mail.com","0785878787","rue du lac 1","New tires");
+        addBike(db,"jm@mail.com","Blue MountainBike","Jean","Dubuis","pb@mail.com","0785878787","rue du lac 1","Annual Revision");
+        addBike(db,"jm@mail.com","Green Bicycle","John","Deere","jd@mail.com","0785878787","rue du lac 1","New paint - Red");
+        addBike(db,"jm@mail.com","Pink Race Bicycle","Maria","Stoffer","ms@mail.com","0785878787","rue du lac 1","New brakes");
+        addBike(db,"jm@mail.com","Black Moutainbike with blue lights","Marc","Dupont","md@mail.com","0785878787","rue du lac 1","Problem with chain");
+        addBike(db,"jm@mail.com","Little Tricycle","Johnny","Little","jl@mail.com","0785878787","rue du lac 1","Front wheel broken");
+        addBike(db,"jm@mail.com","White BMX","Barack","Obama","bo@mail.com","0785878787","rue du lac 1","Oil change");
 
     }
 

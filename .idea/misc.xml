@@ -9,23 +9,23 @@
         <entry key="..\:/Users/Maio-/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2985" />
         <entry key="..\:/Users/Maio-/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/drawable/ic_person_foreground.xml" value="0.2985" />
         <entry key="..\:/Users/Maio-/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/drawable/ic_settings_foreground.xml" value="0.2985" />
+        <entry key="..\:/Users/Maio-/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/layout/activity_archived_bike.xml" value="0.1" />
+        <entry key="..\:/Users/Maio-/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/layout/activity_bike.xml" value="0.1" />
+        <entry key="..\:/Users/Maio-/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/layout/activity_bikedetail.xml" value="0.18541666666666667" />
         <entry key="..\:/Users/Maio-/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/layout/activity_login.xml" value="0.5" />
-        <entry key="..\:/Users/Maio-/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Users/Maio-/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/layout/activity_mechanic.xml" value="0.18" />
+        <entry key="..\:/Users/Maio-/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Maio-/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/layout/activity_mechanic.xml" value="0.25" />
         <entry key="..\:/Users/Maio-/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/layout/activity_register.xml" value="0.1" />
+        <entry key="..\:/Users/Maio-/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/layout/app_bar_main.xml" value="0.1" />
+        <entry key="..\:/Users/Maio-/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/layout/recycler_view.xml" value="0.19791666666666666" />
+        <entry key="..\:/Users/Maio-/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/layout/recycler_view2.xml" value="0.1" />
+        <entry key="..\:/Users/Maio-/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/menu/action_bar.xml" value="0.1" />
         <entry key="..\:/Users/Maio-/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/menu/bottom_menu.xml" value="0.5" />
         <entry key="..\:/Users/Maio-/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.2364341085271318" />
+        <entry key="..\:/Users/Maio-/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/menu/main.xml" value="0.3625" />
         <entry key="..\:/Users/Maio-/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2985" />
-        <entry key="..\:/Users/simon/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/drawable/ic_home.xml" value="0.1815" />
-        <entry key="..\:/Users/simon/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/drawable/ic_settings.xml" value="0.259" />
-        <entry key="..\:/Users/simon/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/drawable/linearborder.xml" value="0.215" />
-        <entry key="..\:/Users/simon/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/layout/activity_bike.xml" value="0.28134556574923547" />
-        <entry key="..\:/Users/simon/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/layout/activity_bikedetail.xml" value="0.2222222222222222" />
-        <entry key="..\:/Users/simon/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/layout/activity_login.xml" value="0.2222222222222222" />
-        <entry key="..\:/Users/simon/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/layout/activity_main.xml" value="0.2222222222222222" />
-        <entry key="..\:/Users/simon/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/layout/activity_mechanic.xml" value="0.2222222222222222" />
-        <entry key="..\:/Users/simon/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/layout/activity_register.xml" value="0.2222222222222222" />
-        <entry key="..\:/Users/simon/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/layout/recycler_view.xml" value="0.2977777777777778" />
+        <entry key="..\:/Users/Maio-/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/xml/pref_about.xml" value="0.21920289855072464" />
+        <entry key="..\:/Users/Maio-/AndroidStudioProjects/Projet_bicycle_revisions/app/src/main/res/xml/pref_headers.xml" value="0.21920289855072464" />
       </map>
     </option>
   </component>
