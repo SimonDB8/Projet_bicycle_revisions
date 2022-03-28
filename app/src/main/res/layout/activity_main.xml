@@ -7,7 +7,7 @@
     tools:context=".ui.MainActivity">
 
     <LinearLayout
-        android:layout_width="387dp"
+        android:layout_width="match_parent"
         android:layout_height="672dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
@@ -16,41 +16,38 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-        <EditText
-            android:id="@+id/firstname"
+        <TextView
+            android:id="@+id/textView2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:text="Jean"
-            android:textSize="30dp"
-            android:layout_marginTop="15dp"
-            android:inputType="textPersonName"
-            android:background="@color/white"/>
+            android:layout_height="100dp"
+            android:background="#05922C"
+            android:gravity="center_vertical|center"
+            android:text="B-Revision"
+            android:textColor="@color/black"
+            android:textSize="40dp"
+            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/lastname"
+        <ImageView
+            android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Dubuis"
-            android:textSize="30dp"
-            android:background="@color/white"/>
+            android:layout_height="278dp"
+            android:background="#05922C"
+            app:srcCompat="@drawable/logo" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="370dp"
             android:layout_height="28dp"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
             android:text="@string/title_list_rev"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/bikesRecyclerView"
-            android:layout_width="359dp"
-            android:layout_height="596dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:scrollbars="vertical" />
     </LinearLayout>
