@@ -26,8 +26,6 @@ public interface BikeDao {
     @Insert
     long insert(BikesEntity bike);
 
-
-
     @Update
     void update(BikesEntity bike);
 

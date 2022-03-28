@@ -25,7 +25,7 @@ import com.example.projet_bicycle_revisions.viewmodel.MechanicViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-public class MechanicActivity extends AppCompatActivity implements NavigationBarView.OnItemReselectedListener{
+public class MechanicActivity extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener{
 
     protected BottomNavigationView navigationView;
     EditText firstname;
@@ -54,7 +54,7 @@ public class MechanicActivity extends AppCompatActivity implements NavigationBar
         setContentView(R.layout.activity_mechanic);
         navigationView = new BottomNavigationView(this);
         navigationView = findViewById(R.id.bottomNavigationView);
-        navigationView.setOnItemReselectedListener(this);
+        navigationView.setOnItemSelectedListener(this);
         navigationView.setSelectedItemId(R.id.person);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(false);
@@ -245,7 +245,7 @@ public class MechanicActivity extends AppCompatActivity implements NavigationBar
 
 
     @Override
-    public void onNavigationItemReselected(@NonNull MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()) {
             case R.id.person:
@@ -261,6 +261,7 @@ public class MechanicActivity extends AppCompatActivity implements NavigationBar
                 break;
         }
 
+        return false;
     }
 
 

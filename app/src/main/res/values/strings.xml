@@ -26,4 +26,12 @@
     <string name="action_delete">Delete</string>
     <string name="delete_msg">Do you really want to delete your account ?</string>
     <string name="action_cancel">Cancel</string>
+    <string name="ownerLastname">Owner Lastname</string>
+    <string name="ownerAddress">Owner Address</string>
+    <string name="ownerphone">Owner Phone</string>
+    <string name="bikecreated">Bike has beed added</string>
+    <string name="delete_msg_bike">Do you really want to delete this bike ?</string>
+    <string name="error_non_null">Cannot be empty</string>
+    <string name="bike_edited">Bike has been edited</string>
+    <string name="bike_not_edited">Bike has not been edited. Try again !</string>
 </resources>

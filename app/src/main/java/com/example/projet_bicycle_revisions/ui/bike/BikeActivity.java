@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.projet_bicycle_revisions.R;
 import com.example.projet_bicycle_revisions.database.async.bike.CreateBike;
+import com.example.projet_bicycle_revisions.database.dao.BikeDao;
 import com.example.projet_bicycle_revisions.database.entity.BikesEntity;
 import com.example.projet_bicycle_revisions.ui.MainActivity;
 import com.example.projet_bicycle_revisions.ui.mechanic.MechanicActivity;
@@ -21,7 +23,7 @@ import com.example.projet_bicycle_revisions.util.OnAsyncEventListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-public class BikeActivity extends AppCompatActivity implements NavigationBarView.OnItemReselectedListener{
+public class BikeActivity extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener{
 
     protected BottomNavigationView navigationView;
 
@@ -43,7 +45,7 @@ public class BikeActivity extends AppCompatActivity implements NavigationBarView
         setContentView(R.layout.activity_bike);
         navigationView = new BottomNavigationView(this);
         navigationView = findViewById(R.id.bottomNavigationView);
-        navigationView.setOnItemReselectedListener(this);
+        navigationView.setOnItemSelectedListener(this);
         navigationView.setSelectedItemId(R.id.add);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(false);
@@ -65,8 +67,8 @@ public class BikeActivity extends AppCompatActivity implements NavigationBarView
         etDescriptionBike = findViewById(R.id.descriptionProblem);
         Button createBike = findViewById(R.id.registerRepair);
         createBike.setOnClickListener(view -> saveNewBike(
-                etBike.getText().toString(),
                 etFirstNameBike.getText().toString(),
+                etBike.getText().toString(),
                 etLastNameBike.getText().toString(),
                 etEmailBike.getText().toString(),
                 etTelephoneBike.getText().toString(),
@@ -76,27 +78,52 @@ public class BikeActivity extends AppCompatActivity implements NavigationBarView
     }
 
     private void saveNewBike(String firstNameBike,String typeBike, String lastNameBike, String emailBike, String telephoneBike, String addressBike, String descriptionBike){
-        String status="ongoing";
-        BikesEntity newBike = new BikesEntity(MainActivity.PREFS_NAME,typeBike,firstNameBike,lastNameBike,emailBike,telephoneBike,addressBike,descriptionBike,false);
+        if(typeBike.equals("")){
+            etBike.setError(getString(R.string.error_non_null));
+            etBike.requestFocus();
+            return;
+        }
+        if(descriptionBike.equals("")) {
+            etDescriptionBike.setError(getString(R.string.error_non_null));
+            etDescriptionBike.requestFocus();
+            return;
+        }
+
+        SharedPreferences settings = getSharedPreferences(MainActivity.PREFS_NAME, 0);
+        String user = settings.getString(MainActivity.PREFS_USER,null);
+        BikesEntity newBike = new BikesEntity(user,typeBike,firstNameBike,lastNameBike,emailBike,telephoneBike,addressBike,descriptionBike,false);
 
         new CreateBike(getApplication(), new OnAsyncEventListener() {
             @Override
             public void onSuccess() {
-
+                setResponse(true);
             }
 
             @Override
             public void onFailure(Exception e) {
-
+                setResponse(false);
             }
         }).execute(newBike);
 
+
+
         startActivity( new Intent(this, MainActivity.class));
+    }
+    private void setResponse(Boolean response) {
+        if (response) {
+            toast = Toast.makeText(this, getString(R.string.bikecreated), Toast.LENGTH_LONG);
+            toast.show();
+           ;
+        } else {
+            toast = Toast.makeText(this, "Error", Toast.LENGTH_LONG);
+            toast.show();
+
+        }
     }
 
 
     @Override
-    public void onNavigationItemReselected(@NonNull MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()) {
             case R.id.person:
@@ -111,6 +138,7 @@ public class BikeActivity extends AppCompatActivity implements NavigationBarView
             default:
                 break;
         }
+        return false;
 
     }
 }

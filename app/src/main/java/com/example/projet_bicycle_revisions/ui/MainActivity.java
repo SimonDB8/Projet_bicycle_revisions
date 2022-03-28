@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.hardware.lights.LightsManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -22,7 +21,6 @@ import com.example.projet_bicycle_revisions.database.entity.BikesEntity;
 import com.example.projet_bicycle_revisions.ui.bike.BikeActivity;
 import com.example.projet_bicycle_revisions.ui.bike.BikeDetailActivity;
 import com.example.projet_bicycle_revisions.ui.mechanic.MechanicActivity;
-import com.example.projet_bicycle_revisions.ui.mgmt.LoginActivity;
 import com.example.projet_bicycle_revisions.util.RecyclerViewItemClickListener;
 import com.example.projet_bicycle_revisions.viewmodel.ListBikeViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -31,7 +29,7 @@ import com.google.android.material.navigation.NavigationBarView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements NavigationBarView.OnItemReselectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener {
 
     public static final String PREFS_NAME = "SharedPrefs";
     public static final String PREFS_USER = "LoggedIn";
@@ -50,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
         setContentView(R.layout.activity_main);
         navigationView = new BottomNavigationView(this);
         navigationView = findViewById(R.id.bottomNavigationView);
-        navigationView.setOnItemReselectedListener(this);
+        navigationView.setOnItemSelectedListener(this);
         navigationView.setSelectedItemId(R.id.home);
 
         ActionBar actionBar = getSupportActionBar();
@@ -104,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
     }
 
     @Override
-    public void onNavigationItemReselected(@NonNull MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()) {
             case R.id.person:
@@ -118,5 +116,6 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
             default:
                 break;
         }
+        return false;
     }
 }
