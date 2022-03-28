@@ -44,6 +44,8 @@ public class DatabaseInitializer {
         }
         addBike(db,"jc@mail.com","Yellow BMX","Paul","Dubuis","pb@mail.com","0785878787","rue du lac 1","Problème à la roue avant");
         addBike(db,"jm@mail.com","Red Peugeot Bicycle","Martin","Dubuis","pb@mail.com","0785878787","rue du lac 1","Problème à la roue avant");
+        addBike(db,"jm@mail.com","Red Peugeot Bicycle","Martin","Dubuis","pb@mail.com","0785878787","rue du lac 1","Problème à la roue avant");
+        addBike(db,"jm@mail.com","Red Peugeot Bicycle","Martin","Dubuis","pb@mail.com","0785878787","rue du lac 1","Problème à la roue avant");
         addBike(db,"jp@mail.com","Blue MountainBike","Jean","Dubuis","pb@mail.com","0785878787","rue du lac 1","Problème à la roue avant");
 
     }

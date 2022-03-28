@@ -5,99 +5,121 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#05922C"
+        android:gravity="center_vertical|center"
+        android:text="New Member"
+        android:textColor="@color/black"
+        android:textSize="40dp"
+        android:textStyle="bold" />
+
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="223dp"
-        android:layout_height="225dp"
-        android:layout_gravity="center"
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="278dp"
+        android:background="#05922C"
         app:srcCompat="@drawable/logo" />
 
-
-    <EditText
-        android:id="@+id/firstname"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/firstname"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/lastname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/lastname"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/address"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="@string/address"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"/>
+            <EditText
+                android:id="@+id/firstname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:ems="10"
+                android:hint="@string/firstname"
+                android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/telephone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="phone"
-        android:hint="@string/telephone"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"/>
+            <EditText
+                android:id="@+id/lastname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:ems="10"
+                android:hint="@string/lastname"
+                android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/emailField"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"/>
+            <EditText
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:ems="10"
+                android:hint="@string/address"
+                android:inputType="text" />
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="@string/passwordField"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"/>
+            <EditText
+                android:id="@+id/telephone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:ems="10"
+                android:hint="@string/telephone"
+                android:inputType="phone" />
 
-    <EditText
-        android:id="@+id/passwordRep"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="Repeat password"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"/>
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:ems="10"
+                android:hint="@string/emailField"
+                android:inputType="textPersonName" />
 
-    <Button
-        android:id="@+id/registerButton2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/registerButton"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"
-        android:backgroundTint="@color/black"/>
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:ems="10"
+                android:hint="@string/passwordField"
+                android:inputType="textPassword" />
+
+            <EditText
+                android:id="@+id/passwordRep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:ems="10"
+                android:hint="Repeat password"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/registerButton2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="#AC0707"
+                android:text="@string/registerButton" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

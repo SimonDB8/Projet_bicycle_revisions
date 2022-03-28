@@ -26,11 +26,12 @@
 
 
             <TextView
+                android:id="@+id/textView2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:gravity="center_horizontal"
-                android:text="New bike"
+                android:layout_height="100dp"
+                android:background="#05922C"
+                android:gravity="center_vertical|center"
+                android:text="New Bike"
                 android:textColor="@color/black"
                 android:textSize="40dp"
                 android:textStyle="bold" />
@@ -52,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="30dp"
                 android:ems="10"
                 android:hint="Firstname"

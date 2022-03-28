@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(false);
+
         RecyclerView recyclerView = findViewById(R.id.bikesRecyclerView);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);

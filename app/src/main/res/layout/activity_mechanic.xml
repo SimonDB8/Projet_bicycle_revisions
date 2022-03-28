@@ -13,14 +13,15 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/textView2"
             android:layout_width="match_parent"
-            android:layout_height="81dp"
-            android:gravity="center_horizontal"
-            android:textStyle="bold"
-            android:layout_marginTop="30dp"
+            android:layout_height="100dp"
+            android:background="#05922C"
+            android:gravity="center_vertical|center"
             android:text="Profile"
+            android:textColor="@color/black"
             android:textSize="40dp"
-            android:textColor="@color/black"/>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/firstnameMechanicProfile"
@@ -29,6 +30,11 @@
             android:ems="10"
             android:hint="First Name"
             android:inputType="textPersonName"
+            android:gravity="center"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:background="@color/white"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="25dp"
@@ -41,6 +47,11 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Last Name"
+            android:gravity="center"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:background="@color/white"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
@@ -52,10 +63,11 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
+            android:textColor="@color/black"
             android:hint="@string/emailField"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="30dp"
             />
 
         <EditText
@@ -64,6 +76,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="phone"
+            android:textColor="@color/black"
             android:hint="Phone number"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
@@ -75,6 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:textColor="@color/black"
             android:inputType="textPersonName"
             android:hint="Address"
             android:layout_marginRight="30dp"
@@ -100,7 +114,8 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="37dp"
-                android:text="Delete" />
+                android:text="Delete"
+                android:backgroundTint="#AC0707"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -130,13 +145,15 @@
                     android:text="Save" />
         </LinearLayout>
 
+
         <Button
             android:id="@+id/logoutProfile"
-            android:layout_width="250dp"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
-            android:text="Logout" />
+            android:background="@drawable/logout"
+            />
 
 
     </LinearLayout>

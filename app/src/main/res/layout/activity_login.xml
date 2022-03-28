@@ -9,18 +9,19 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:layout_height="81dp"
-        android:gravity="center_horizontal"
-        android:textStyle="bold"
-        android:layout_marginTop="30dp"
+        android:layout_height="100dp"
+        android:background="#05922C"
+        android:gravity="center_vertical|center"
         android:text="B-Revision"
+        android:textColor="@color/black"
         android:textSize="40dp"
-        android:textColor="@color/black"/>
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="278dp"
+        android:background="#05922C"
         app:srcCompat="@drawable/logo" />
 
     <AutoCompleteTextView
@@ -30,6 +31,7 @@
         android:hint="@string/emailField"
         android:inputType="textEmailAddress"
         android:maxLines="1"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp"/>
 
@@ -77,17 +79,16 @@
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
-        android:backgroundTint="@color/black" />
+        android:backgroundTint="#AC0707" />
 
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="En utilisant cette application vous acceptez les conditions générales d'utilisation"
-        android:layout_marginRight="20dp"
+        android:layout_height="203dp"
         android:layout_marginLeft="20dp"
-        android:gravity="center_horizontal"
         android:layout_marginTop="10dp"
-        />
+        android:layout_marginRight="20dp"
+        android:gravity="center_horizontal"
+        android:text="En utilisant cette application vous acceptez les conditions générales d'utilisation" />
 </LinearLayout>
