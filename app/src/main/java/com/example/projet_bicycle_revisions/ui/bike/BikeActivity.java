@@ -43,10 +43,13 @@ public class BikeActivity extends AppCompatActivity implements NavigationBarView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bike);
+
+        //Bottom navigation menu settings
         navigationView = new BottomNavigationView(this);
         navigationView = findViewById(R.id.bottomNavigationView);
         navigationView.setOnItemSelectedListener(this);
         navigationView.setSelectedItemId(R.id.add);
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(false);
         setTitle("");

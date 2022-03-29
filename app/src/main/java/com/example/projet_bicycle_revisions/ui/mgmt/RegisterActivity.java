@@ -38,6 +38,9 @@ public class RegisterActivity extends AppCompatActivity {
         toast = Toast.makeText(this, getString(R.string.mechanic_created), Toast.LENGTH_LONG);
     }
 
+    /**
+     * Initialise the edit texts
+     */
     private void initializeForm() {
         etFirstName = findViewById(R.id.firstname);
         etLastName = findViewById(R.id.lastname);
@@ -58,6 +61,17 @@ public class RegisterActivity extends AppCompatActivity {
         ));
     }
 
+    /**
+     * Creates an account with double password confirmation
+     * If the passwords are not the same, doesn't continue
+     * @param firstName
+     * @param lastName
+     * @param address
+     * @param telephone
+     * @param email
+     * @param pwd
+     * @param pwd2
+     */
     private void saveChanges(String firstName, String lastName,String address,String telephone, String email, String pwd, String pwd2) {
         if (!pwd.equals(pwd2) || pwd.length() < 5) {
             etPwd1.setError(getString(R.string.error_invalid_password));
@@ -88,6 +102,11 @@ public class RegisterActivity extends AppCompatActivity {
         }).execute(newMechanic);
     }
 
+    /**
+     * Set the new user and logs in
+     * With email is already used, throws error and focus on email
+     * @param response
+     */
     private void setResponse(Boolean response) {
         if (response) {
             final SharedPreferences.Editor editor = getSharedPreferences(MainActivity.PREFS_NAME, 0).edit();

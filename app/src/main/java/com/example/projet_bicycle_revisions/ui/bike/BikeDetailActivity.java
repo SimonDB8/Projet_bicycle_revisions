@@ -122,6 +122,9 @@ public class BikeDetailActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Switches between read and edit mode regarding of the boolean editMode
+     */
     public void switchMode(){
         if(editMode == true){
 
@@ -184,6 +187,10 @@ public class BikeDetailActivity extends AppCompatActivity {
 
         }
     }
+
+    /**
+     * Updates the EditTextes with new data
+     */
     private void updateContent() {
         if(bike!=null){
             etTypeBike.setText(bike.getTypeBike());
@@ -194,6 +201,10 @@ public class BikeDetailActivity extends AppCompatActivity {
             etPhoneBike.setText(bike.getTelephoneBike());
         }
     }
+
+    /**
+     * Method to delete bike with alertDialog for confirmation
+     */
     public void deleteBike(){
         final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
         alertDialog.setTitle(getString(R.string.action_delete));
@@ -215,10 +226,17 @@ public class BikeDetailActivity extends AppCompatActivity {
         alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.action_cancel), (dialog, which) -> alertDialog.dismiss());
         alertDialog.show();
     }
+
+    /**
+     * Method to return to the previous activity after, for example, deleting the bike
+     */
     public void goBack(){
         startActivity(new Intent(this,MainActivity.class));
     }
 
+    /**
+     * Saves the changes made on bike's information
+     */
     public void saveBike(){
         if(etTypeBike.getText().equals(null)){
             etTypeBike.setError(getString(R.string.error_non_null));
@@ -249,6 +267,7 @@ public class BikeDetailActivity extends AppCompatActivity {
             }
         });
     }
+
     private void setResponse(Boolean response) {
         if (response) {
             updateContent();

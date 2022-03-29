@@ -55,17 +55,18 @@
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
-        android:backgroundTint="@color/black" />
+        android:textColor="@color/white"
+        android:backgroundTint="@color/black"
+        />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Vous êtes un nouvel employé ? inscrivez-vous dès maintenant !"
+        android:text="Vous êtes un nouvel employé ? Inscrivez-vous dès maintenant !"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:gravity="center_horizontal"
-        android:textColor="@color/black"
         android:layout_marginTop="20dp"
 
         />
@@ -90,5 +91,5 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:gravity="center_horizontal"
-        android:text="En utilisant cette application vous acceptez les conditions générales d'utilisation" />
+        android:text="En utilisant cette application, vous acceptez les conditions générales d'utilisation" />
 </LinearLayout>

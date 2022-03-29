@@ -28,15 +28,12 @@ public class LoginActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_login);
 
         repository = ((BaseApp) getApplication()).getMechanicRepository();
-        //progressBar = findViewById(R.id.progress);
 
         // Set up the login form.
         emailView = findViewById(R.id.email);
-
         passwordView = findViewById(R.id.password);
 
         Button emailSignInButton = findViewById(R.id.email_sign_in_button);
@@ -47,8 +44,6 @@ public class LoginActivity extends AppCompatActivity
                 new Intent(LoginActivity.this, RegisterActivity.class))
         );
 
-       //Button demoDataButton = findViewById(R.id.demo_data_button);
-       //demoDataButton.setOnClickListener(view -> reinitializeDatabase());
     }
 
     @Override

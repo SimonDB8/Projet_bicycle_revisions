@@ -25,7 +25,7 @@ import com.example.projet_bicycle_revisions.viewmodel.MechanicViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-public class MechanicActivity extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener{
+public class MechanicActivity extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener {
 
     protected BottomNavigationView navigationView;
     EditText firstname;
@@ -52,6 +52,8 @@ public class MechanicActivity extends AppCompatActivity implements NavigationBar
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mechanic);
+
+        //Bottom navigation menu
         navigationView = new BottomNavigationView(this);
         navigationView = findViewById(R.id.bottomNavigationView);
         navigationView.setOnItemSelectedListener(this);
@@ -60,6 +62,7 @@ public class MechanicActivity extends AppCompatActivity implements NavigationBar
         actionBar.setDisplayHomeAsUpEnabled(false);
         setTitle("");
 
+        //Edit text initialisation
         firstname = findViewById(R.id.firstnameMechanicProfile);
         lastname = findViewById(R.id.lastnameMechanicProfile);
         email = findViewById(R.id.emailMechanicProfile);
@@ -76,14 +79,14 @@ public class MechanicActivity extends AppCompatActivity implements NavigationBar
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                editMode= true;
+                editMode = true;
                 switchMode();
             }
         });
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                editMode=false;
+                editMode = false;
                 switchMode();
                 dataInitialiser();
             }
@@ -107,11 +110,15 @@ public class MechanicActivity extends AppCompatActivity implements NavigationBar
             }
         });
     }
-    public void dataInitialiser(){
+
+    /**
+     * Get the mechanic regarding the shared parameter PREFS_NAME
+     */
+    public void dataInitialiser() {
         SharedPreferences settings = getSharedPreferences(MainActivity.PREFS_NAME, 0);
-        String user = settings.getString(MainActivity.PREFS_USER,null);
-        MechanicViewModel.Factory factory = new MechanicViewModel.Factory(getApplication(),user);
-        viewModel = new ViewModelProvider(this,factory).get(MechanicViewModel.class);
+        String user = settings.getString(MainActivity.PREFS_USER, null);
+        MechanicViewModel.Factory factory = new MechanicViewModel.Factory(getApplication(), user);
+        viewModel = new ViewModelProvider(this, factory).get(MechanicViewModel.class);
         viewModel.getMechanic().observe(this, mechanicEntity -> {
             if (mechanicEntity != null) {
                 mechanic = mechanicEntity;
@@ -120,9 +127,13 @@ public class MechanicActivity extends AppCompatActivity implements NavigationBar
         });
     }
 
-    public void switchMode(){
-        if(editMode == true){
+    /**
+     * Switches between read and edit mode regarding of the boolean editMode
+     */
+    public void switchMode() {
+        if (editMode == true) {
 
+            //Edit mode
             firstname.setFocusable(true);
             lastname.setFocusable(true);
             email.setFocusable(true);
@@ -148,8 +159,8 @@ public class MechanicActivity extends AppCompatActivity implements NavigationBar
             saveButton.setVisibility(View.VISIBLE);
 
 
-        }
-        else{
+        } else {
+            //Normal mode
             firstname.setFocusable(false);
             lastname.setFocusable(false);
             email.setFocusable(false);
@@ -177,8 +188,11 @@ public class MechanicActivity extends AppCompatActivity implements NavigationBar
         }
     }
 
+    /**
+     * Set the mechanic informations in the EditTexts
+     */
     private void updateContent() {
-        if(mechanic!=null){
+        if (mechanic != null) {
             firstname.setText(mechanic.getName());
             lastname.setText(mechanic.getSurname());
             email.setText(mechanic.getEmail());
@@ -186,8 +200,12 @@ public class MechanicActivity extends AppCompatActivity implements NavigationBar
             phone.setText(mechanic.getTelephone());
         }
     }
-    public void saveChanges(){
-      if(!android.util.Patterns.EMAIL_ADDRESS.matcher(email.getText()).matches()) {
+
+    /**
+     * Saves the changes made in edit mode
+     */
+    public void saveChanges() {
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email.getText()).matches()) {
             email.setError(getString(R.string.error_invalid_email));
             email.requestFocus();
             return;
@@ -211,19 +229,28 @@ public class MechanicActivity extends AppCompatActivity implements NavigationBar
         });
 
     }
+
+    /**
+     * Gives user an output when he has modified the infos
+     * @param response
+     */
     private void setResponse(Boolean response) {
         if (response) {
             updateContent();
             toast = Toast.makeText(this, getString(R.string.mechanic_edited), Toast.LENGTH_LONG);
             toast.show();
-            editMode=false;
+            editMode = false;
             switchMode();
         } else {
             email.setError(getString(R.string.error_used_email));
             email.requestFocus();
         }
     }
-    public void deleteAccount(){
+
+    /**
+     * Delete methode with alertDialog for confirmation
+     */
+    public void deleteAccount() {
         final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
         alertDialog.setTitle(getString(R.string.action_delete));
         alertDialog.setCancelable(false);
@@ -236,36 +263,17 @@ public class MechanicActivity extends AppCompatActivity implements NavigationBar
                 }
 
                 @Override
-                public void onFailure(Exception e) {}
+                public void onFailure(Exception e) {
+                }
             });
         });
         alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.action_cancel), (dialog, which) -> alertDialog.dismiss());
         alertDialog.show();
     }
 
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-        switch (item.getItemId()) {
-            case R.id.person:
-                //do nothing
-                break;
-            case R.id.add:
-                startActivity( new Intent(this, BikeActivity.class));
-                break;
-            case R.id.home:
-                startActivity( new Intent(this, MainActivity.class));
-                break;
-            default:
-                break;
-        }
-
-        return false;
-    }
-
-
-
+    /**
+     * Resets shared preferences and sends user back to login activity
+     */
     public void logout() {
         SharedPreferences.Editor editor = getSharedPreferences(MainActivity.PREFS_NAME, 0).edit();
         editor.remove(MainActivity.PREFS_USER);
@@ -276,4 +284,26 @@ public class MechanicActivity extends AppCompatActivity implements NavigationBar
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(intent);
     }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.person:
+                //do nothing
+                break;
+            case R.id.add:
+                startActivity(new Intent(this, BikeActivity.class));
+                break;
+            case R.id.home:
+                startActivity(new Intent(this, MainActivity.class));
+                break;
+            default:
+                break;
+        }
+
+        return false;
+    }
+
+
 }

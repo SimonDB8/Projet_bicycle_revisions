@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
         actionBar.setDisplayHomeAsUpEnabled(false);
         setTitle("");
 
+        //RecyclerView for list of bicycles
         RecyclerView recyclerView = findViewById(R.id.bikesRecyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -124,6 +125,7 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
         }
         return false;
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
