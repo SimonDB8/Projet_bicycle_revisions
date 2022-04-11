@@ -17,6 +17,8 @@ import android.view.MenuItem;
 import androidx.core.app.NavUtils;
 
 import com.example.projet_bicycle_revisions.R;
+import com.example.projet_bicycle_revisions.ui.MainActivity;
+import com.example.projet_bicycle_revisions.ui.bike.BikeArchivedActivity;
 
 import java.util.List;
 
@@ -177,5 +179,10 @@ public class SettingsActivity extends PreferenceActivity {
             }
             return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, MainActivity.class));
     }
 }

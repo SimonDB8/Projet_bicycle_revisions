@@ -143,4 +143,9 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
         }
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onBackPressed() {
+        //do nothing
+    }
 }

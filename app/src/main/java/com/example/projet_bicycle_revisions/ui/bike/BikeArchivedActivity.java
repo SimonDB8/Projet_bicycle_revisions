@@ -49,7 +49,7 @@ public class BikeArchivedActivity extends AppCompatActivity {
                 new DividerItemDecoration(recyclerView.getContext(),LinearLayoutManager.VERTICAL);
         recyclerView.addItemDecoration(dividerItemDecoration);
 
-        SharedPreferences settings = getSharedPreferences(MainActivity.PREFS_USER, 0);
+        SharedPreferences settings = getSharedPreferences(MainActivity.PREFS_NAME, 0);
         String email = settings.getString(MainActivity.PREFS_USER, null);
 
         bikes = new ArrayList<>();
