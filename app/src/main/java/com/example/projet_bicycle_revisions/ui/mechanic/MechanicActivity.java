@@ -115,9 +115,7 @@ public class MechanicActivity extends AppCompatActivity implements NavigationBar
      * Get the mechanic regarding the shared parameter PREFS_NAME
      */
     public void dataInitialiser() {
-        SharedPreferences settings = getSharedPreferences(MainActivity.PREFS_NAME, 0);
-        String user = settings.getString(MainActivity.PREFS_USER, null);
-        MechanicViewModel.Factory factory = new MechanicViewModel.Factory(getApplication(), user);
+        MechanicViewModel.Factory factory = new MechanicViewModel.Factory(getApplication());
         viewModel = new ViewModelProvider(this, factory).get(MechanicViewModel.class);
         viewModel.getMechanic().observe(this, mechanicEntity -> {
             if (mechanicEntity != null) {

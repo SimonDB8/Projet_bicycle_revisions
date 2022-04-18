@@ -68,9 +68,6 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),LinearLayoutManager.VERTICAL);
         recyclerView.addItemDecoration(dividerItemDecoration);
 
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        String email = settings.getString(PREFS_USER, null);
-
         bikes = new ArrayList<>();
         adapter = new RecyclerAdapter<>(new RecyclerViewItemClickListener() {
             @Override
@@ -94,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
 
             }
         });
-        ListBikeViewModel.Factory factory = new ListBikeViewModel.Factory(getApplication(),email);
+        ListBikeViewModel.Factory factory = new ListBikeViewModel.Factory(getApplication());
         viewModel = new ViewModelProvider(this,factory).get(ListBikeViewModel.class);
         viewModel.getAllBikesOfMechanic().observe(this, bikesEntities -> {
             if(bikesEntities !=null){

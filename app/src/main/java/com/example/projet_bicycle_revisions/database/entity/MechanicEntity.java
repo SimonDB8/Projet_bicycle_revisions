@@ -5,7 +5,11 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "mechanic", primaryKeys = "email")
+import com.google.firebase.database.Exclude;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class MechanicEntity {
 
 
@@ -35,7 +39,7 @@ public class MechanicEntity {
         this.address = address;
     }
 
-    @NonNull
+
     public String getEmail() {
         return email;
     }
@@ -60,6 +64,7 @@ public class MechanicEntity {
         this.surname = surname;
     }
 
+    @Exclude
     public String getPassword() {
         return password;
     }
@@ -82,6 +87,16 @@ public class MechanicEntity {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    @Exclude
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("firstName", name);
+        result.put("lastName", surname);
+        result.put("email", email);
+
+        return result;
     }
 
 }

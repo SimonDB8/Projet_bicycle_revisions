@@ -22,7 +22,7 @@ public class BikeViewModel extends AndroidViewModel {
 
     private final MediatorLiveData<BikesEntity> observableBike;
 
-    public BikeViewModel(@NonNull Application application, final long id, BikeRepository bikeRepository ) {
+    public BikeViewModel(@NonNull Application application, final String id, BikeRepository bikeRepository ) {
         super(application);
 
         this.application = application;
@@ -30,7 +30,7 @@ public class BikeViewModel extends AndroidViewModel {
         observableBike = new MediatorLiveData<>();
         observableBike.setValue(null);
 
-        LiveData<BikesEntity> bike = repository.getBike(id,application);
+        LiveData<BikesEntity> bike = repository.getBike(id);
         observableBike.addSource(bike, observableBike::setValue);
 
     }
@@ -40,11 +40,11 @@ public class BikeViewModel extends AndroidViewModel {
         @NonNull
         private final Application application;
 
-        private final long id;
+        private final String id;
 
         private final BikeRepository repository;
 
-        public Factory(@NonNull Application application, long id) {
+        public Factory(@NonNull Application application, String id) {
             this.application = application;
             this.id = id;
             repository = ((BaseApp) application).getBikeRepository();
@@ -61,16 +61,14 @@ public class BikeViewModel extends AndroidViewModel {
         return observableBike;
     }
 
-    public void createBike(BikesEntity bike, OnAsyncEventListener callback) {
-        repository.insert(bike, callback, application);
-    }
-
     public void updateBike(BikesEntity bike, OnAsyncEventListener callback) {
-        repository.update(bike, callback, application);
+        ((BaseApp) getApplication()).getBikeRepository()
+                .update(bike,callback);
     }
 
     public void deleteBike(BikesEntity bike, OnAsyncEventListener callback) {
-        repository.delete(bike, callback, application);
+        ((BaseApp) getApplication()).getBikeRepository()
+                .delete(bike,callback);
 
 
 

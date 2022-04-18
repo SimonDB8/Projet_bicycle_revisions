@@ -16,8 +16,7 @@ import com.example.projet_bicycle_revisions.R;
 import com.example.projet_bicycle_revisions.database.repository.MechanicRepository;
 import com.example.projet_bicycle_revisions.ui.MainActivity;
 
-public class LoginActivity extends AppCompatActivity
-{
+public class LoginActivity extends AppCompatActivity {
 
     private AutoCompleteTextView emailView;
     private EditText passwordView;
@@ -99,34 +98,22 @@ public class LoginActivity extends AppCompatActivity
             focusView.requestFocus();
         } else {
             //progressBar.setVisibility(View.VISIBLE);
-            repository.getMechanic(email, getApplication()).observe(LoginActivity.this, clientEntity -> {
-                if (clientEntity != null) {
-                    if (clientEntity.getPassword().equals(password)) {
-                        // We need an Editor object to make preference changes.
-                        // All objects are from android.context.Context
-                        SharedPreferences.Editor editor = getSharedPreferences(MainActivity.PREFS_NAME, 0).edit();
-                        editor.putString(MainActivity.PREFS_USER, clientEntity.getEmail());
-                        editor.apply();
-
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(intent);
-                        emailView.setText("");
-                        passwordView.setText("");
-                    } else {
-                        passwordView.setError(getString(R.string.error_incorrect_password));
-                        passwordView.requestFocus();
-                        passwordView.setText("");
-                    }
-                    //progressBar.setVisibility(View.GONE);
-                } else {
-                    emailView.setError(getString(R.string.error_invalid_email));
-                    emailView.requestFocus();
+            repository.signIn(email, password, task -> {
+                if (task.isSuccessful()) {
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    emailView.setText("");
                     passwordView.setText("");
-                    //progressBar.setVisibility(View.GONE);
+                } else {
+                    passwordView.setError(getString(R.string.loginError));
+                    passwordView.requestFocus();
+                    passwordView.setText("");
                 }
-            });
-        }
+                //progressBar.setVisibility(View.GONE);
+        });
     }
+
+}
 
     private boolean isEmailValid(String email) {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();

@@ -105,7 +105,6 @@ public class RecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerAdapter.Vie
                         BikesEntity oldBike = (BikesEntity) mData.get(newItemPosition);
                         return newBike.getId().equals(oldBike.getId())
                                 && Objects.equals(newBike.getDescriptionBike(), oldBike.getDescriptionBike())
-                                && Objects.equals(newBike.getMechanic(), oldBike.getMechanic())
                                 && newBike.getFirstNameBike().equals(oldBike.getFirstNameBike());
                     }
 

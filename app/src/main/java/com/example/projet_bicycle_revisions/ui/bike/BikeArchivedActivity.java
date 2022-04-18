@@ -49,9 +49,6 @@ public class BikeArchivedActivity extends AppCompatActivity {
                 new DividerItemDecoration(recyclerView.getContext(),LinearLayoutManager.VERTICAL);
         recyclerView.addItemDecoration(dividerItemDecoration);
 
-        SharedPreferences settings = getSharedPreferences(MainActivity.PREFS_NAME, 0);
-        String email = settings.getString(MainActivity.PREFS_USER, null);
-
         bikes = new ArrayList<>();
         adapter = new RecyclerAdapter<>(new RecyclerViewItemClickListener() {
             @Override
@@ -76,7 +73,7 @@ public class BikeArchivedActivity extends AppCompatActivity {
             }
         });
         ListBikeArchivedViewModel.Factory factory =
-                new ListBikeArchivedViewModel.Factory(getApplication(),email);
+                new ListBikeArchivedViewModel.Factory(getApplication());
         viewModel = new ViewModelProvider(this,factory).get(ListBikeArchivedViewModel.class);
         viewModel.getAllBikesOfMechanic().observe(this, bikesEntities -> {
             if(bikesEntities !=null){

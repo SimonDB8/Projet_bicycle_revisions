@@ -10,14 +10,18 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.projet_bicycle_revisions.BaseApp;
 import com.example.projet_bicycle_revisions.R;
-import com.example.projet_bicycle_revisions.database.async.mechanic.CreateMechanic;
+
 import com.example.projet_bicycle_revisions.database.entity.MechanicEntity;
+import com.example.projet_bicycle_revisions.database.repository.MechanicRepository;
 import com.example.projet_bicycle_revisions.ui.MainActivity;
 import com.example.projet_bicycle_revisions.util.OnAsyncEventListener;
 
 public class RegisterActivity extends AppCompatActivity {
     private static final String TAG = "RegisterActivity";
+
+    private MechanicRepository repository;
 
     private Toast toast;
 
@@ -36,6 +40,8 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         initializeForm();
         toast = Toast.makeText(this, getString(R.string.mechanic_created), Toast.LENGTH_LONG);
+        repository = ((BaseApp) getApplication()).getMechanicRepository();
+
     }
 
     /**
@@ -73,7 +79,7 @@ public class RegisterActivity extends AppCompatActivity {
      * @param pwd2
      */
     private void saveChanges(String firstName, String lastName,String address,String telephone, String email, String pwd, String pwd2) {
-        if (!pwd.equals(pwd2) || pwd.length() < 5) {
+        if (!pwd.equals(pwd2) || pwd.length() < 6) {
             etPwd1.setError(getString(R.string.error_invalid_password));
             etPwd1.requestFocus();
             etPwd1.setText("");
@@ -87,7 +93,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
         MechanicEntity newMechanic = new MechanicEntity(email,pwd,firstName,lastName,telephone,address);
 
-        new CreateMechanic(getApplication(), new OnAsyncEventListener() {
+        repository.register(newMechanic, new OnAsyncEventListener() {
             @Override
             public void onSuccess() {
                 Log.d(TAG, "createUserWithEmail: success");
@@ -99,7 +105,7 @@ public class RegisterActivity extends AppCompatActivity {
                 Log.d(TAG, "createUserWithEmail: failure", e);
                 setResponse(false);
             }
-        }).execute(newMechanic);
+        });
     }
 
     /**
@@ -109,9 +115,6 @@ public class RegisterActivity extends AppCompatActivity {
      */
     private void setResponse(Boolean response) {
         if (response) {
-            final SharedPreferences.Editor editor = getSharedPreferences(MainActivity.PREFS_NAME, 0).edit();
-            editor.putString(MainActivity.PREFS_USER, etEmail.getText().toString());
-            editor.apply();
             toast.show();
             Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
             startActivity(intent);

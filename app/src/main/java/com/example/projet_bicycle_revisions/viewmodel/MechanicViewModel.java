@@ -22,7 +22,7 @@ public class MechanicViewModel extends AndroidViewModel {
 
     private final MediatorLiveData<MechanicEntity> observableMechanic;
 
-    public MechanicViewModel(@NonNull Application application, final String email, MechanicRepository mechanicRepository ) {
+    public MechanicViewModel(@NonNull Application application, MechanicRepository mechanicRepository ) {
         super(application);
 
         this.application = application;
@@ -30,7 +30,7 @@ public class MechanicViewModel extends AndroidViewModel {
         observableMechanic = new MediatorLiveData<>();
         observableMechanic.setValue(null);
 
-        LiveData<MechanicEntity> mechanic = repository.getMechanic(email,application);
+        LiveData<MechanicEntity> mechanic = repository.getMechanic();
         observableMechanic.addSource(mechanic, observableMechanic::setValue);
 
     }
@@ -40,20 +40,17 @@ public class MechanicViewModel extends AndroidViewModel {
         @NonNull
         private final Application application;
 
-        private final String email;
-
         private final MechanicRepository repository;
 
-        public Factory(@NonNull Application application, String email) {
+        public Factory(@NonNull Application application) {
             this.application = application;
-            this.email = email;
             repository = ((BaseApp) application).getMechanicRepository();
         }
 
         @Override
         public <T extends ViewModel> T create(Class<T> modelClass) {
             //noinspection unchecked
-            return (T) new MechanicViewModel(application, email, repository);
+            return (T) new MechanicViewModel(application, repository);
         }
     }
 
@@ -61,16 +58,15 @@ public class MechanicViewModel extends AndroidViewModel {
             return observableMechanic;
         }
 
-        public void createMechanic(MechanicEntity mechanic, OnAsyncEventListener callback) {
-            repository.insert(mechanic, callback, application);
-        }
 
         public void updateMechanic(MechanicEntity mechanic, OnAsyncEventListener callback) {
-            repository.update(mechanic, callback, application);
+            ((BaseApp) getApplication()).getMechanicRepository()
+                    .update(mechanic, callback);
         }
 
         public void deleteMechanic(MechanicEntity mechanic, OnAsyncEventListener callback) {
-            repository.delete(mechanic, callback, application);
+            ((BaseApp) getApplication()).getMechanicRepository()
+                    .delete(mechanic, callback);
 
 
 

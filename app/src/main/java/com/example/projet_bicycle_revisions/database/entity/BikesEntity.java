@@ -6,13 +6,17 @@ import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+import com.google.firebase.database.Exclude;
+
+import java.util.HashMap;
+import java.util.Map;
+
 @Entity(tableName = "bikes", foreignKeys = @ForeignKey( entity = MechanicEntity.class,
         parentColumns = "email",childColumns = "mechanic",onDelete = ForeignKey.CASCADE), indices = {@Index(value = {"mechanic"})})
 public class BikesEntity {
 
     @PrimaryKey(autoGenerate = true)
-    private Long id;
-    private String mechanic;
+    private String id;
 
     private String typeBike;
 
@@ -29,13 +33,12 @@ public class BikesEntity {
 
     private String descriptionBike;
 
-    private boolean finished;
+    private boolean status;
 
     public BikesEntity() {
     }
 
-    public BikesEntity(String mechanic,String typeBike, @NonNull String firstNameBike, String lastNameBike, String emailBike, String telephoneBike, String addressBike, String descriptionBike, boolean finished) {
-        this.mechanic = mechanic;
+    public BikesEntity(String typeBike, @NonNull String firstNameBike, String lastNameBike, String emailBike, String telephoneBike, String addressBike, String descriptionBike, boolean finished) {
         this.firstNameBike = firstNameBike;
         this.lastNameBike = lastNameBike;
         this.emailBike = emailBike;
@@ -43,23 +46,15 @@ public class BikesEntity {
         this.addressBike = addressBike;
         this.descriptionBike = descriptionBike;
         this.typeBike = typeBike;
-        this.finished = finished;
+        this.status = finished;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
-    }
-
-    public String getMechanic() {
-        return mechanic;
-    }
-
-    public void setMechanic(String mechanic) {
-        this.mechanic = mechanic;
     }
 
     @NonNull
@@ -119,11 +114,25 @@ public class BikesEntity {
         this.typeBike = typeBike;
     }
 
-    public boolean isFinished() {
-        return finished;
+    public boolean isStatus() {
+        return status;
     }
 
-    public void setFinished(boolean finished) {
-        this.finished = finished;
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    @Exclude
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("firstNameBike",firstNameBike);
+        result.put("lastNameBike",lastNameBike);
+        result.put("telephoneBike",telephoneBike);
+        result.put("addressBike",addressBike);
+        result.put("typeBike",typeBike);
+        result.put("descriptionBike",descriptionBike);
+        result.put("status",status);
+
+        return result;
     }
 }

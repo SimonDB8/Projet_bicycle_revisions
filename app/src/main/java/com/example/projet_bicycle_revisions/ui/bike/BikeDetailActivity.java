@@ -1,16 +1,12 @@
 package com.example.projet_bicycle_revisions.ui.bike;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -21,9 +17,6 @@ import com.example.projet_bicycle_revisions.ui.MainActivity;
 import com.example.projet_bicycle_revisions.util.OnAsyncEventListener;
 import com.example.projet_bicycle_revisions.viewmodel.BikeViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
-
-import java.util.Locale;
 
 public class BikeDetailActivity extends AppCompatActivity {
     BottomNavigationView navigationView;
@@ -69,7 +62,7 @@ public class BikeDetailActivity extends AppCompatActivity {
         saveBike = findViewById(R.id.saveBike);
         finishBike = findViewById(R.id.finishBike);
 
-        long bikeId = getIntent().getExtras().getLong("bikeId");
+        String bikeId = getIntent().getExtras().getString("bikeId");
         dataInitialiser(bikeId);
         switchMode();
 
@@ -103,14 +96,14 @@ public class BikeDetailActivity extends AppCompatActivity {
         finishBike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                bike.setFinished(true);
+                bike.setStatus(true);
                 saveBike();
                 goBack();
             }
         });
     }
 
-    public void dataInitialiser(long id) {
+    public void dataInitialiser(String id) {
 
         BikeViewModel.Factory factory = new BikeViewModel.Factory(getApplication(),id);
         bikeViewModel = new ViewModelProvider(this, factory).get(BikeViewModel.class);

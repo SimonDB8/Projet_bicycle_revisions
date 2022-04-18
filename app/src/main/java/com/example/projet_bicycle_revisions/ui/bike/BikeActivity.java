@@ -13,10 +13,10 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.projet_bicycle_revisions.BaseApp;
 import com.example.projet_bicycle_revisions.R;
-import com.example.projet_bicycle_revisions.database.async.bike.CreateBike;
-import com.example.projet_bicycle_revisions.database.dao.BikeDao;
 import com.example.projet_bicycle_revisions.database.entity.BikesEntity;
+import com.example.projet_bicycle_revisions.database.repository.BikeRepository;
 import com.example.projet_bicycle_revisions.ui.MainActivity;
 import com.example.projet_bicycle_revisions.ui.mechanic.MechanicActivity;
 import com.example.projet_bicycle_revisions.util.OnAsyncEventListener;
@@ -26,6 +26,8 @@ import com.google.android.material.navigation.NavigationBarView;
 public class BikeActivity extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener{
 
     protected BottomNavigationView navigationView;
+
+    private BikeRepository repository;
 
     private Toast toast;
 
@@ -43,6 +45,7 @@ public class BikeActivity extends AppCompatActivity implements NavigationBarView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bike);
+        repository = ((BaseApp) getApplication()).getBikeRepository();
 
         //Bottom navigation menu settings
         navigationView = new BottomNavigationView(this);
@@ -92,11 +95,9 @@ public class BikeActivity extends AppCompatActivity implements NavigationBarView
             return;
         }
 
-        SharedPreferences settings = getSharedPreferences(MainActivity.PREFS_NAME, 0);
-        String user = settings.getString(MainActivity.PREFS_USER,null);
-        BikesEntity newBike = new BikesEntity(user,typeBike,firstNameBike,lastNameBike,emailBike,telephoneBike,addressBike,descriptionBike,false);
+        BikesEntity newBike = new BikesEntity(typeBike,firstNameBike,lastNameBike,emailBike,telephoneBike,addressBike,descriptionBike,false);
 
-        new CreateBike(getApplication(), new OnAsyncEventListener() {
+        repository.insert(newBike, new OnAsyncEventListener() {
             @Override
             public void onSuccess() {
                 setResponse(true);
@@ -106,7 +107,7 @@ public class BikeActivity extends AppCompatActivity implements NavigationBarView
             public void onFailure(Exception e) {
                 setResponse(false);
             }
-        }).execute(newBike);
+        });
 
 
 

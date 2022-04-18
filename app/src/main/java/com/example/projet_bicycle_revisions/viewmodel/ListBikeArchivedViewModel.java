@@ -23,7 +23,7 @@ public class ListBikeArchivedViewModel extends AndroidViewModel {
 
     private final MediatorLiveData<List<BikesEntity>> observableBike;
 
-    public ListBikeArchivedViewModel(@NonNull Application application, final String email, BikeRepository bikeRepository ) {
+    public ListBikeArchivedViewModel(@NonNull Application application, BikeRepository bikeRepository ) {
         super(application);
 
         this.application = application;
@@ -31,7 +31,7 @@ public class ListBikeArchivedViewModel extends AndroidViewModel {
         observableBike = new MediatorLiveData<>();
         observableBike.setValue(null);
 
-        LiveData<List<BikesEntity>> bike = repository.getAllofMechanicByStatus(email,true,application);
+        LiveData<List<BikesEntity>> bike = repository.getBikeByStatus(true);
         observableBike.addSource(bike, observableBike::setValue);
 
     }
@@ -41,20 +41,17 @@ public class ListBikeArchivedViewModel extends AndroidViewModel {
         @NonNull
         private final Application application;
 
-        private final String email;
-
         private final BikeRepository repository;
 
-        public Factory(@NonNull Application application, String email) {
+        public Factory(@NonNull Application application) {
             this.application = application;
-            this.email=email;
             repository = ((BaseApp) application).getBikeRepository();
         }
 
         @Override
         public <T extends ViewModel> T create(Class<T> modelClass) {
             //noinspection unchecked
-            return (T) new ListBikeArchivedViewModel(application, email, repository);
+            return (T) new ListBikeArchivedViewModel(application, repository);
         }
     }
 

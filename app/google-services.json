@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "103914373127",
+    "firebase_url": "https://bicyclerevision-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "bicyclerevision",
+    "storage_bucket": "bicyclerevision.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103914373127:android:2c67d41d84b0cb86366aa2",
+        "android_client_info": {
+          "package_name": "com.example.projet_bicycle_revisions"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "103914373127-ha1t633ul151kc4aitbloia44q6a090d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2qpvTUcenheye8pi7YHYugjbWmiYWun4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "103914373127-ha1t633ul151kc4aitbloia44q6a090d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
